@@ -41,7 +41,7 @@ const Post = () => {
     {error && <div className="text-red-500 mb-4">{error}</div>}
       <h1 className="text-4xl font-bold mx-10">{post.title}</h1>
       <h3 className="text-2xl font-bold mx-10">{post.summary}</h3>
-      <p className="text-gray-700 mt-4 leading-loose text-balance indent-8 mx-10">{post.content}</p>
+      <div className="text-gray-800 mt-4 leading-loose text-balance indent-8 mx-10" style={{ whiteSpace: 'pre-wrap', fontFamily: 'roboto' }}>{post.content}</div>
       <div>
       <small className="text-gray-400 mx-10">Published on {new Date(post.createdAt).toLocaleDateString()}</small>
       </div><div>
