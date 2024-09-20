@@ -39,13 +39,13 @@ const Post = () => {
   return (
     <div className="container mx-auto p-4">
     {error && <div className="text-red-500 mb-4">{error}</div>}
-      <h1 className="text-4xl font-bold mx-10">{post.title}</h1>
-      <h3 className="text-2xl font-bold mx-10">{post.summary}</h3>
+      <h1 className="text-4xl text-green-500 font-bold mt-4 mx-10">{post.title}</h1>
+      <h3 className="text-2xl text-blue-500 font-bold indent-4 mt-4 mx-10">{post.summary}</h3>
       <div className="text-gray-800 mt-4 leading-loose text-balance indent-8 mx-10" style={{ whiteSpace: 'pre-wrap', fontFamily: 'roboto' }}>{post.content}</div>
       <div>
-      <small className="text-gray-400 mx-10">Published on {new Date(post.createdAt).toLocaleDateString()}</small>
+      <small className="text-gray-400 mt-4 mx-10">Published on {new Date(post.createdAt).toLocaleDateString()}</small>
       </div><div>
-      <small className="text-gray-400 mx-10">Auther {post.author.username}</small>
+      <small className="text-gray-400 mt-4 mx-10">Auther {post.author.username}</small>
       {user && user.username === post.author.username && (
       <div className="mt-4 mb-10">
       <Link to={`/edit/${post._id}`} className="text-blue-500 mx-12">Edit</Link>
