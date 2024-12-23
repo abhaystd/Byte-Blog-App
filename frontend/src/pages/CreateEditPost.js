@@ -17,7 +17,7 @@ const CreateEditPost = () => {
     if (id) {
       const fetchPost = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/posts/${id}`);
+          const response = await axios.get(`https://byte-blog-server.onrender.com/posts/${id}`);
           const post = response.data;
           setTitle(post.title); // Set title to the existing post title
           setSummary(post.summary); // Set summary to the existing post summary
@@ -37,7 +37,7 @@ const CreateEditPost = () => {
 
     try {
       if (id) {
-        await axios.put(`http://localhost:5000/posts/${id}`, newPost , {
+        await axios.put(`https://byte-blog-server.onrender.com/posts/${id}`, newPost , {
             
             headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
         });
@@ -45,7 +45,7 @@ const CreateEditPost = () => {
         
       } else {
         // console.log("new 1");
-        await axios.post('http://localhost:5000/posts', newPost, {
+        await axios.post('https://byte-blog-server.onrender.com/posts', newPost, {
             
           headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
         });

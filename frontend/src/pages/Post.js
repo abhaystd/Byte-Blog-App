@@ -11,14 +11,14 @@ const Post = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/posts/${id}`)
+    axios.get(`https://byte-blog-server.onrender.com/posts/${id}`)
       .then(res => setPost(res.data))
       .catch(err => console.error(err));
   }, [id]);
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/posts/${id}`, {
+      await axios.delete(`https://byte-blog-server.onrender.com/posts/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
       });
       alert('Post deleted successfully');

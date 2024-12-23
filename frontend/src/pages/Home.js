@@ -7,7 +7,7 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/posts')
+    axios.get('https://byte-blog-server.onrender.com/posts')
       .then(res => setPosts(res.data))
       .catch(err => console.error(err));
   }, []);

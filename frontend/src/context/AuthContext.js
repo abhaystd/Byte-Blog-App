@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
     if (token) {
       axios
-        .get('http://localhost:5000/auth/me', { headers: { Authorization: `Bearer ${token}` } })
+        .get('https://byte-blog-server.onrender.com/auth/me', { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
           setUser(response.data);
         })
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   // Login user and store token in localStorage
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { email, password });
+      const response = await axios.post('https://byte-blog-server.onrender.com/auth/login', { email, password });
       const {token,user} =response.data;
       localStorage.setItem('authToken', token);
       setUser(user);
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   // Register user and store token in localStorage
   const register = async (username, email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
+      const response = await axios.post('https://byte-blog-server.onrender.com/auth/register', {
         username,
         email,
         password,
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('authToken');
     setUser(null);
-    navigate('/login');
+    navigate('/');
   };
 
   // Authentication state and functions
