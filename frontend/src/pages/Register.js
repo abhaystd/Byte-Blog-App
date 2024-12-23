@@ -12,7 +12,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(username, email, password);
       await register(username, email, password);
+      console.log(username, email, password);
       navigate('/');
     } catch (err) {
       console.error(err);
