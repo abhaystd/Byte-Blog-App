@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config()
+// console.log(process.env) 
 
 // Initialize app
 const app = express();
@@ -12,7 +14,8 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/blog')
+// mongoose.connect('mongodb://localhost:27017/blog')
+mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log(err));
 
